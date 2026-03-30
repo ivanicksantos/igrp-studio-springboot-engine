@@ -1,0 +1,40 @@
+# Extend Spring Boot Component Skill Workflow
+
+name: Extend Spring Boot Component
+
+description: This skill allows you to extend or modify components of the Spring Boot engine using additional configurations and custom implementations.
+
+# Workflow steps
+steps:
+  - name: Set Up Environment
+    description: Ensure that your Spring Boot environment is correctly set up.
+    commands:
+      - "git clone https://github.com/ivanicksantos/igrp-studio-springboot-engine"
+      - "cd igrp-studio-springboot-engine"
+
+  - name: Create Custom Component
+    description: Create your own Spring Boot component based on your needs.
+    commands:
+      - "touch src/main/java/com/ivanicksantos/MyCustomComponent.java"
+      - "echo 'package com.ivanicksantos;' > src/main/java/com/ivanicksantos/MyCustomComponent.java"
+      - "echo 'public class MyCustomComponent {}' >> src/main/java/com/ivanicksantos/MyCustomComponent.java"
+
+  - name: Update Application Properties
+    description: Modify application.properties to include configurations of the new component.
+    commands:
+      - "echo 'my.custom.property=value' >> src/main/resources/application.properties"
+
+  - name: Test Custom Component
+    description: Test your new Spring Boot component to ensure it works as expected.
+    commands:
+      - "./mvnw test"
+
+  - name: Deploy the Application
+    description: Deploy your Spring Boot application with the new component.
+    commands:
+      - "./mvnw spring-boot:run"
+
+# Notes:
+Ensure that you have the correct dependencies in your pom.xml file if you are using Maven. 
+
+# End of Workflow
